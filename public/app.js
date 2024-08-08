@@ -1,25 +1,24 @@
-"use strict";
-// classes
-class Invoice {
-    // readonly client: string;
-    // details: string;
-    // public amount: number;
-    constructor(// better way to write the constructor and the access modifiers at the same time
-    client, details, amount) {
-        this.client = client;
-        this.details = details;
-        this.amount = amount;
-    }
-    // constructor(c: string, d: string, a: number) {
-    //     this.client = c;
-    //     this.details = d;
-    //     this.amount = a;
-    // }
-    format() {
-        // this.client = 'somethig'
-        return `${this.client} owes ₹${this.amount} for ${this.details}`;
-    }
-}
+import { Invoice } from "./classes/invoice.js";
+// // classes
+// class Invoice {
+//     // readonly client: string;
+//     // details: string;
+//     // public amount: number;
+//     constructor( // better way to write the constructor and the access modifiers at the same time
+//         readonly client: string,
+//         private details: string,
+//         public amount: number,
+//     ) { }
+//     // constructor(c: string, d: string, a: number) {
+//     //     this.client = c;
+//     //     this.details = d;
+//     //     this.amount = a;
+//     // }
+//     format() {
+//         // this.client = 'somethig'
+//         return `${this.client} owes ₹${this.amount} for ${this.details}`
+//     }
+// }
 const invOne = new Invoice('Messi', 'for rigging the ballondor', 1000);
 const invTwo = new Invoice('Ronaldo', 'for commenting in instagram from his sisters phone', 500);
 let invoices = [];
@@ -31,7 +30,7 @@ invoices.push(invTwo);
 // console.log(invoices);
 invoices.forEach(inv => {
     // inv.client = 'somethig'
-    console.log(inv.client, inv.details, inv.amount, inv.format());
+    console.log(inv.client, inv.amount, inv.format());
 });
 // const anchor = document.querySelector('a')!; // '!' this is to let the program know that the anchor is not null for definite
 // // if (anchor) {
