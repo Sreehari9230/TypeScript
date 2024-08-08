@@ -1,33 +1,45 @@
 // classes
 class Invoice {
-    client: string;
-    details: string;
-    amount: number;
+    // readonly client: string;
+    // details: string;
+    // public amount: number;
 
-    constructor(c: string, d: string, a: number) {
-        this.client = c;
-        this.details = d;
-        this.amount = a;
-    }
+    constructor( // better way to write the constructor and the access modifiers at the same time
+        readonly client: string,
+        private details: string,
+        public amount: number,
+    ) { }
+
+    // constructor(c: string, d: string, a: number) {
+    //     this.client = c;
+    //     this.details = d;
+    //     this.amount = a;
+    // }
 
 
     format() {
+        // this.client = 'somethig'
         return `${this.client} owes ₹${this.amount} for ${this.details}`
     }
 }
 
-const invOne = new Invoice('Messi','for rigging the ballondor',1000)
-const invTwo = new Invoice('Ronaldo','for commenting in instagram from his sisters phone',500)
+const invOne = new Invoice('Messi', 'for rigging the ballondor', 1000)
+const invTwo = new Invoice('Ronaldo', 'for commenting in instagram from his sisters phone', 500)
 
 let invoices: Invoice[] = []
 invoices.push(invOne)
 invoices.push(invTwo)
 
-invOne.client = 'hehe'
-invTwo.amount = 200
+// invOne.client = 'hehe'
+// invTwo.amount = 200
 
-console.log(invOne,invTwo);
-console.log(invoices);
+// console.log(invOne,invTwo);
+// console.log(invoices);
+
+invoices.forEach(inv => {
+    // inv.client = 'somethig'
+    console.log(inv.client, inv.details, inv.amount, inv.format());
+})
 
 
 
