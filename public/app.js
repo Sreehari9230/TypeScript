@@ -15,13 +15,10 @@ const invTwo = new Invoice('Ronaldo', 'for commenting in instagram from his sist
 let invoices = [];
 invoices.push(invOne);
 invoices.push(invTwo);
-// invOne.client = 'hehe'
-// invTwo.amount = 200
-// console.log(invOne,invTwo);
-// console.log(invoices);
-invoices.forEach(inv => {
-    console.log(inv.client, inv.details, inv.amount, inv.format());
-});
+invOne.client = 'hehe';
+invTwo.amount = 200;
+console.log(invOne, invTwo);
+console.log(invoices);
 // const anchor = document.querySelector('a')!; // '!' this is to let the program know that the anchor is not null for definite
 // // if (anchor) {
 // //     console.log(anchor.href);

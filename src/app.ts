@@ -23,18 +23,11 @@ let invoices: Invoice[] = []
 invoices.push(invOne)
 invoices.push(invTwo)
 
-// invOne.client = 'hehe'
-// invTwo.amount = 200
+invOne.client = 'hehe'
+invTwo.amount = 200
 
-// console.log(invOne,invTwo);
-// console.log(invoices);
-
-invoices.forEach(inv =>{
-    console.log(inv.client,inv.details,inv.amount,inv.format());
-    
-})
-
-
+console.log(invOne,invTwo);
+console.log(invoices);
 
 
 
