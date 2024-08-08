@@ -1,3 +1,40 @@
+// classes
+class Invoice {
+    client: string;
+    details: string;
+    amount: number;
+
+    constructor(c: string, d: string, a: number) {
+        this.client = c;
+        this.details = d;
+        this.amount = a;
+    }
+
+
+    format() {
+        return `${this.client} owes ₹${this.amount} for ${this.details}`
+    }
+}
+
+const invOne = new Invoice('Messi','for rigging the ballondor',1000)
+const invTwo = new Invoice('Ronaldo','for commenting in instagram from his sisters phone',500)
+
+let invoices: Invoice[] = []
+invoices.push(invOne)
+invoices.push(invTwo)
+
+invOne.client = 'hehe'
+invTwo.amount = 200
+
+console.log(invOne,invTwo);
+console.log(invoices);
+
+
+
+
+
+
+
 // const anchor = document.querySelector('a')!; // '!' this is to let the program know that the anchor is not null for definite
 
 // // if (anchor) {
@@ -17,7 +54,7 @@ const tofrom = document.querySelector('#tofrom') as HTMLInputElement;
 const details = document.querySelector('#details') as HTMLInputElement;
 const amount = document.querySelector('#amount') as HTMLInputElement;
 
-form.addEventListener('submit', (e: Event)=>{
+form.addEventListener('submit', (e: Event) => {
     e.preventDefault();
 
     console.log(
@@ -26,6 +63,6 @@ form.addEventListener('submit', (e: Event)=>{
         details.value,
         amount.valueAsNumber
     );
-    
+
 })
 

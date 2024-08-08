@@ -1,4 +1,24 @@
 "use strict";
+// classes
+class Invoice {
+    constructor(c, d, a) {
+        this.client = c;
+        this.details = d;
+        this.amount = a;
+    }
+    format() {
+        return `${this.client} owes ₹${this.amount} for ${this.details}`;
+    }
+}
+const invOne = new Invoice('Messi', 'for rigging the ballondor', 1000);
+const invTwo = new Invoice('Ronaldo', 'for commenting in instagram from his sisters phone', 500);
+let invoices = [];
+invoices.push(invOne);
+invoices.push(invTwo);
+invOne.client = 'hehe';
+invTwo.amount = 200;
+console.log(invOne, invTwo);
+console.log(invoices);
 // const anchor = document.querySelector('a')!; // '!' this is to let the program know that the anchor is not null for definite
 // // if (anchor) {
 // //     console.log(anchor.href);
