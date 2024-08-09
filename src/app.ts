@@ -1,75 +1,92 @@
-// interfaces
-interface IsPerson {
-    name: string;
-    age: number;
-    speak(a: string): void;
-    spend(a: number): number;
-}
-
-const me: IsPerson = {
-    name: 'shaun',
-    age: 30,
-    speak(test: string): void {
-        console.log(Text);
-    },
-    spend(amount: number): number {
-        console.log('i spend ', amount);
-        return amount
-    },
-}
-
-const greet = (person:IsPerson)=>{
-    console.log('hello',person.name);
-    
-}
-greet(me)
-console.log(me);
-
-
-
 import { Invoice } from "./classes/invoice.js"
-// // classes
-// class Invoice {
-//     // readonly client: string;
-//     // details: string;
-//     // public amount: number;
+import { payment } from "./classes/payment.js"
+import { hasFormatter } from "./interfaces/hasFormatter.js"
 
-//     constructor( // better way to write the constructor and the access modifiers at the same time
-//         readonly client: string,
-//         private details: string,
-//         public amount: number,
-//     ) { }
+// let docOne: hasFormatter;
+// let docTwo: hasFormatter;
 
-//     // constructor(c: string, d: string, a: number) {
-//     //     this.client = c;
-//     //     this.details = d;
-//     //     this.amount = a;
-//     // }
+// docOne = new Invoice('yoshi', 'web work', 250)
+// docTwo = new payment('mario', 'plumbing work', 200)
+
+// let docs: hasFormatter[] = [];
+// docs.push(docOne)
+// docs.push(docTwo)
+
+// console.log(docs);
 
 
-//     format() {
-//         // this.client = 'somethig'
-//         return `${this.client} owes ₹${this.amount} for ${this.details}`
-//     }
+// // interfaces
+// interface IsPerson {
+//     name: string;
+//     age: number;
+//     speak(a: string): void;
+//     spend(a: number): number;
 // }
 
-const invOne = new Invoice('Messi', 'for rigging the ballondor', 1000)
-const invTwo = new Invoice('Ronaldo', 'for commenting in instagram from his sisters phone', 500)
+// const me: IsPerson = {
+//     name: 'shaun',
+//     age: 30,
+//     speak(test: string): void {
+//         console.log(Text);
+//     },
+//     spend(amount: number): number {
+//         console.log('i spend ', amount);
+//         return amount
+//     },
+// }
 
-let invoices: Invoice[] = []
-invoices.push(invOne)
-invoices.push(invTwo)
+// const greet = (person:IsPerson)=>{
+//     console.log('hello',person.name);
 
-// invOne.client = 'hehe'
-// invTwo.amount = 200
+// }
+// greet(me)
+// console.log(me);
 
-// console.log(invOne,invTwo);
-// console.log(invoices);
 
-invoices.forEach(inv => {
-    // inv.client = 'somethig'
-    console.log(inv.client, inv.amount, inv.format());
-})
+
+// import { Invoice } from "./classes/invoice.js"
+// // // classes
+// // class Invoice {
+// //     // readonly client: string;
+// //     // details: string;
+// //     // public amount: number;
+
+// //     constructor( // better way to write the constructor and the access modifiers at the same time
+// //         readonly client: string,
+// //         private details: string,
+// //         public amount: number,
+// //     ) { }
+
+// //     // constructor(c: string, d: string, a: number) {
+// //     //     this.client = c;
+// //     //     this.details = d;
+// //     //     this.amount = a;
+// //     // }
+
+
+// //     format() {
+// //         // this.client = 'somethig'
+// //         return `${this.client} owes ₹${this.amount} for ${this.details}`
+// //     }
+// // }
+
+// const invOne = new Invoice('Messi', 'for rigging the ballondor', 1000)
+// const invTwo = new Invoice('Ronaldo', 'for commenting in instagram from his sisters phone', 500)
+
+// let invoices: Invoice[] = []
+// invoices.push(invOne)
+// invoices.push(invTwo)
+
+// // invOne.client = 'hehe'
+// // invTwo.amount = 200
+
+// // console.log(invOne,invTwo);
+// // console.log(invoices);
+
+// invoices.forEach(inv => {
+//     // inv.client = 'somethig'
+//     console.log(inv.client, inv.amount, inv.format());
+// })
 
 
 
@@ -97,11 +114,19 @@ const amount = document.querySelector('#amount') as HTMLInputElement;
 form.addEventListener('submit', (e: Event) => {
     e.preventDefault();
 
+    let doc: hasFormatter;
+    if (type.value == 'invoice') {
+        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber)
+    } else {
+        doc = new payment(tofrom.value, details.value, amount.valueAsNumber)
+    }
+
     console.log(
-        type.value,
-        tofrom.value,
-        details.value,
-        amount.valueAsNumber
+        // type.value,
+        // tofrom.value,
+        // details.value,
+        // amount.valueAsNumber
+        doc
     );
 
 })
