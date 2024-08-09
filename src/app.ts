@@ -154,23 +154,47 @@ console.log(docOne.age);
 
 
 // Generics with interfaces
+// interface Resource<T> {
+//     uid: number,
+//     resourceName: string,
+//     data: T
+// }
+
+// const docThree: Resource<object> = {
+//     uid: 1,
+//     resourceName: 'person',
+//     data: {name:'sreehari'}
+// }
+
+
+// const docFour: Resource<string[]> = {
+//     uid:2,
+//     resourceName:'shoppinglist',
+//     data:['text','hello','hehhe']
+// }
+
+// console.log(docThree,docFour);
+
+
+// ENUMS
+
+enum ResourceType { BOOK, AUTHOR, FILM, DIRECTOR, PERSON }
 interface Resource<T> {
     uid: number,
-    resourceName: string,
+    resourceType: ResourceType,
     data: T
 }
 
 const docThree: Resource<object> = {
     uid: 1,
-    resourceName: 'person',
-    data: {name:'sreehari'}
+    resourceType: ResourceType.BOOK,
+    data: { title: 'name of the wind' }
 }
 
 
-const docFour: Resource<string[]> = {
-    uid:2,
-    resourceName:'shoppinglist',
-    data:['text','hello','hehhe']
+const docFour: Resource<object> = {
+    uid: 10,
+    resourceType: ResourceType.PERSON,
+    data: { name: 'yoshi' }
 }
-
 console.log(docThree,docFour);

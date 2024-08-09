@@ -111,14 +111,40 @@ const addUID = (obj) => {
 let docOne = addUID({ name: 'yoshi', age: 40 });
 // let docTwo = addUID('hello')   if we use extends object it has to be object
 console.log(docOne.age);
+// Generics with interfaces
+// interface Resource<T> {
+//     uid: number,
+//     resourceName: string,
+//     data: T
+// }
+// const docThree: Resource<object> = {
+//     uid: 1,
+//     resourceName: 'person',
+//     data: {name:'sreehari'}
+// }
+// const docFour: Resource<string[]> = {
+//     uid:2,
+//     resourceName:'shoppinglist',
+//     data:['text','hello','hehhe']
+// }
+// console.log(docThree,docFour);
+// ENUMS
+var ResourceType;
+(function (ResourceType) {
+    ResourceType[ResourceType["BOOK"] = 0] = "BOOK";
+    ResourceType[ResourceType["AUTHOR"] = 1] = "AUTHOR";
+    ResourceType[ResourceType["FILM"] = 2] = "FILM";
+    ResourceType[ResourceType["DIRECTOR"] = 3] = "DIRECTOR";
+    ResourceType[ResourceType["PERSON"] = 4] = "PERSON";
+})(ResourceType || (ResourceType = {}));
 const docThree = {
     uid: 1,
-    resourceName: 'person',
-    data: { name: 'sreehari' }
+    resourceType: ResourceType.BOOK,
+    data: { title: 'name of the wind' }
 };
 const docFour = {
-    uid: 2,
-    resourceName: 'shoppinglist',
-    data: ['text', 'hello', 'hehhe']
+    uid: 10,
+    resourceType: ResourceType.PERSON,
+    data: { name: 'yoshi' }
 };
 console.log(docThree, docFour);
