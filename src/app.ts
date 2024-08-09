@@ -126,15 +126,51 @@ form.addEventListener('submit', (e: Event) => {
         doc = new payment(tofrom.value, details.value, amount.valueAsNumber)
     }
 
-    console.log(
-        // type.value,
-        // tofrom.value,
-        // details.value,
-        // amount.valueAsNumber
-        doc
-    );
+    // console.log(
+    //     // type.value,
+    //     // tofrom.value,
+    //     // details.value,
+    //     // amount.valueAsNumber
+    //     doc
+    // );
 
-    list.render(doc,type.value,'end')
+    list.render(doc, type.value, 'end')
 
 })
+// PROJECT OVER
 
+
+// generics
+const addUID = <T extends { name: string }>(obj: T) => {  //instead of giving object we give <T> before the argument and T inside the argument to define the type so it capture what properties are on that object that returns at first if we acces docOne.name we get error now it dosnt
+    // it dosnt have to be an object always it can be any types 
+    let uid = Math.floor(Math.random() * 100)
+    return { ...obj, uid }
+}
+
+let docOne = addUID({ name: 'yoshi', age: 40 })
+// let docTwo = addUID('hello')   if we use extends object it has to be object
+
+console.log(docOne.age);
+
+
+// Generics with interfaces
+interface Resource<T> {
+    uid: number,
+    resourceName: string,
+    data: T
+}
+
+const docThree: Resource<object> = {
+    uid: 1,
+    resourceName: 'person',
+    data: {name:'sreehari'}
+}
+
+
+const docFour: Resource<string[]> = {
+    uid:2,
+    resourceName:'shoppinglist',
+    data:['text','hello','hehhe']
+}
+
+console.log(docThree,docFour);

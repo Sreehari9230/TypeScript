@@ -92,11 +92,33 @@ form.addEventListener('submit', (e) => {
     else {
         doc = new payment(tofrom.value, details.value, amount.valueAsNumber);
     }
-    console.log(
-    // type.value,
-    // tofrom.value,
-    // details.value,
-    // amount.valueAsNumber
-    doc);
+    // console.log(
+    //     // type.value,
+    //     // tofrom.value,
+    //     // details.value,
+    //     // amount.valueAsNumber
+    //     doc
+    // );
     list.render(doc, type.value, 'end');
 });
+// PROJECT OVER
+// generics
+const addUID = (obj) => {
+    // it dosnt have to be an object always it can be any types 
+    let uid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { uid });
+};
+let docOne = addUID({ name: 'yoshi', age: 40 });
+// let docTwo = addUID('hello')   if we use extends object it has to be object
+console.log(docOne.age);
+const docThree = {
+    uid: 1,
+    resourceName: 'person',
+    data: { name: 'sreehari' }
+};
+const docFour = {
+    uid: 2,
+    resourceName: 'shoppinglist',
+    data: ['text', 'hello', 'hehhe']
+};
+console.log(docThree, docFour);
