@@ -119,11 +119,16 @@ const list = new listTemplate(ul)
 form.addEventListener('submit', (e: Event) => {
     e.preventDefault();
 
+    let values:[string,string,number]
+    values = [tofrom.value, details.value, amount.valueAsNumber]
+
     let doc: hasFormatter;
     if (type.value == 'invoice') {
-        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber)
+        doc = new Invoice(...values)
+        // doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber)
     } else {
-        doc = new payment(tofrom.value, details.value, amount.valueAsNumber)
+        doc = new payment(...values)
+        // doc = new payment(tofrom.value, details.value, amount.valueAsNumber)
     }
 
     // console.log(
@@ -177,24 +182,43 @@ console.log(docOne.age);
 
 
 // ENUMS
+// enum ResourceType { BOOK, AUTHOR, FILM, DIRECTOR, PERSON }
+// interface Resource<T> {
+//     uid: number,
+//     resourceType: ResourceType,
+//     data: T
+// }
 
-enum ResourceType { BOOK, AUTHOR, FILM, DIRECTOR, PERSON }
-interface Resource<T> {
-    uid: number,
-    resourceType: ResourceType,
-    data: T
-}
-
-const docThree: Resource<object> = {
-    uid: 1,
-    resourceType: ResourceType.BOOK,
-    data: { title: 'name of the wind' }
-}
+// const docThree: Resource<object> = {
+//     uid: 1,
+//     resourceType: ResourceType.BOOK,
+//     data: { title: 'name of the wind' }
+// }
 
 
-const docFour: Resource<object> = {
-    uid: 10,
-    resourceType: ResourceType.PERSON,
-    data: { name: 'yoshi' }
-}
-console.log(docThree,docFour);
+// const docFour: Resource<object> = {
+//     uid: 10,
+//     resourceType: ResourceType.PERSON,
+//     data: { name: 'yoshi' }
+// }
+// console.log(docThree,docFour);
+
+
+// tuples
+
+// normal array
+let arr = ['ryu', 25, true]
+arr[0] = false;
+arr[1] = 'yoshi'
+arr = [30, false, 'yoshi']
+
+// tuples
+let tup: [string, number, boolean] = ['ryu', 25, false]
+// tup[0] = false not posiible
+tup[0] = 'heheh'
+tup[1] = 200
+tup[2] = true
+
+
+let student: [string, number]
+student = ['chun-li', 1039]
